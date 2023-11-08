@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="projects">
+    <div class="title d-flex justify-content-center align-items-center vh-100" id="projects">
+        <span>PROJECTS</span>
+
+        <a href="#" class="slider_buttons slider_button_up_disabled"><i class="fa-solid fa-up-long fa-xl"></i></a>
+        <a href="#albums_carousel_div" class="slider_buttons slider_button_down_1"><i
+                class="fa-solid fa-down-long fa-xl"></i></a>
+
+    </div>
+    <div class="container-fluid">
+        {% include 'elements/bg_video.html' %}
+        {% include 'projects_content/albums.html' %}
+        {% include 'projects_content/singles.html' %}
+        {% include 'projects_content/featurings.html' %}
+    </div>
+</div>
+{% endblock %}

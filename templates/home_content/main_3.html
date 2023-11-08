@@ -1,0 +1,65 @@
+{% block main_3 %}
+<div class="main-3" id="main-3">
+
+    <div class="container">
+        <div class="row d-flex align-items-center vh-100">
+
+            <div class="col-5">
+                <div class="d-flex justify-content-center align-items-center who_is_azuko_div">
+                    <span class="who_is_azuko_title">WHO IS AZUKO?</span>
+                </div>
+                <div class="who_is_azuko">
+                    <div class="who_is_azuko_card">
+                        <img class="who_is_azuko_img" src="{{url_for('static', path='/images/other/who_is_azuko.jpg')}}"
+                            width="100%" alt="">
+                        <p class="m-0 who_is_azuko_description">
+                            "Hi! My name is Azuko and I'm an artist, producer, sound engineer, and I also wrote this
+                            website.
+                            Here you can listen to my music, buy beats or other products. Cheers!" — Azuko.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offset-1 col-6">
+                <div class="d-flex justify-content-center align-items-center products_title_div">
+                    <p class="m-0 text-center products_title">PRODUCTS</p>
+                </div>
+                <div class="products_main_div">
+                    <div class="row d-flex justify-content-between products_div">
+                        {% for product in products %}
+                        <div class="col-6">
+                            <a href="/products/#product_{{ product.id }}">
+                                <img loading="lazy" src="{{url_for('static', path='/images/products/'+product.id|string+'.jpg')}}"
+                                    class="card-img-top img_product" alt="">
+                            </a>
+                            <div class="product_info">
+                                <p
+                                    class="m-0 text-uppercase text-center d-flex align-items-center justify-content-center">
+                                    <span class="product_name">{{ product.price }}&nbsp;<i
+                                            class="fa-solid fa-ruble-sign"></i></span>
+                                    &nbsp;&nbsp;
+                                    {% if product.old_price is none %}
+                                    <span class="text-decoration-line-through old_price d-none">{{ product.old_price}}<i class="fa-solid fa-ruble-sign"></i></span>
+                                    {% else %}
+                                    <span class="text-decoration-line-through old_price">{{ product.old_price}}<i class="fa-solid fa-ruble-sign"></i></span>
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center other_products_div">
+                    <a href="/products"><button class="other_products_button">OTHER PRODUCTS</button></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <a href="#main-2" class="slider_buttons slider_button_up_3"><i class="fa-solid fa-up-long fa-xl"></i></a>
+    <a href="#footer" class="slider_buttons slider_button_down_3"><i class="fa-solid fa-down-long fa-xl"></i></a>
+
+</div>
+{% endblock %}
